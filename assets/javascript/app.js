@@ -75,9 +75,9 @@ var tMinutesTillTrain = frequency - tRemainder;
 var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 
   $("#train-schedule > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
-    frequency);
+    frequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>")
 
-});
+})    
 
 //Change to html//
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
